@@ -12,8 +12,20 @@ public class Flight {
         return this.plane;
     }
 
-
     public FlightNumber getFlightNumber() {
         return this.flightNumber;
     }
+
+    public void changePlane(Plane alternatePlane) {
+        this.plane = alternatePlane;
+    }
+
+    public int countPassengers() {
+        return this.plane.countPassengers();
+    }
+
+    public void addPassenger(String name) {
+        this.plane.addPassenger(name);
+    }
+
 }

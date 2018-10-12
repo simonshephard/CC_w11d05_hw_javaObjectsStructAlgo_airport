@@ -27,6 +27,30 @@ public class FlightTest {
         assertEquals("London", flight.getFlightNumber().getDestination());
     }
 
+    @Test
+    public void changePlane() {
+        Plane alternatePlane = new Plane(PlaneType.BOEING747, Airline.UNITEDAIRLINES);
+        flight.changePlane(alternatePlane);
+        // check flight plane details changed
+        assertEquals(PlaneType.BOEING747, flight.getPlane().getPlaneType());
+        assertEquals(5, flight.getPlane().getPlaneType().getCapacity());
+        assertEquals(Airline.UNITEDAIRLINES, flight.getPlane().getAirline());
+        // check flight number details unchanged
+        assertEquals(FlightNumber.BA1880, flight.getFlightNumber());
+        assertEquals("London", flight.getFlightNumber().getDestination());
+    }
+
+    @Test
+    public void countPassenger() {
+        assertEquals(0, flight.countPassengers());
+    }
+
+    @Test
+    public void addPassenger() {
+        flight.addPassenger("Passenger57");
+        assertEquals(1, flight.countPassengers());
+    }
+
 }
 
 
