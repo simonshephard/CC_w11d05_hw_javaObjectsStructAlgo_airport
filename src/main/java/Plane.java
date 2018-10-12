@@ -29,10 +29,12 @@ public class Plane {
     }
 
     public int findPassenger(String name) {
+        // use Java method for find
         return this.passengers.indexOf(name);
     }
 
     public int findPassengerLinear(String name) {
+        // simple linear search - most efficient for unordered list O(n) - sorting would take O(nlogn)
         for (int i = 0; i < this.passengers.size(); i++) {
             if (this.passengers.get(i) == name) {
                 return i;

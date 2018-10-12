@@ -74,4 +74,7 @@ public class Airport {
         }
     }
 
+    public int findPassenger(Flight flight, String name) {
+        return flight.getPlane().findPassenger(name);
+    }
 }

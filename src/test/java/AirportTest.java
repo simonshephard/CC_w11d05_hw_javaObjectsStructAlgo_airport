@@ -178,4 +178,39 @@ public class AirportTest {
         assertEquals(plane0, flight0.getPlane());
     }
 
+    @Test
+    public void findPassenger() {
+        Plane plane0 = new Plane(PlaneType.BOEING787, Airline.BA);
+        Flight flight0 = new Flight(plane0, FlightNumber.CA5648);
+        airport.sellTicket(flight0, "Passenger60");
+        airport.sellTicket(flight0, "Passenger57");
+        airport.sellTicket(flight0, "Passenger59");
+        airport.sellTicket(flight0, "Passenger61");
+        airport.sellTicket(flight0, "Passenger64");
+        airport.sellTicket(flight0, "Passenger58");
+        airport.sellTicket(flight0, "Passenger66");
+        airport.sellTicket(flight0, "Passenger62");
+        airport.sellTicket(flight0, "Passenger65");
+        airport.sellTicket(flight0, "Passenger63");
+        assertEquals(5, airport.findPassenger(flight0,"Passenger58"));
+    }
+
+    @Test
+    public void findPassengerNotOnPlane() {
+        Plane plane0 = new Plane(PlaneType.BOEING787, Airline.BA);
+        Flight flight0 = new Flight(plane0, FlightNumber.CA5648);
+        airport.sellTicket(flight0, "Passenger60");
+        airport.sellTicket(flight0, "Passenger57");
+        airport.sellTicket(flight0, "Passenger59");
+        airport.sellTicket(flight0, "Passenger61");
+        airport.sellTicket(flight0, "Passenger64");
+        airport.sellTicket(flight0, "Passenger58");
+        airport.sellTicket(flight0, "Passenger66");
+        airport.sellTicket(flight0, "Passenger62");
+        airport.sellTicket(flight0, "Passenger65");
+        airport.sellTicket(flight0, "Passenger63");
+        assertEquals(-1, airport.findPassenger(flight0, "Passenger70"));
+    }
+
+
 }
